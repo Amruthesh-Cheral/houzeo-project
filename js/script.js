@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     document.querySelector('.loader').style.display = 'none';
-  }, 3000); // Loader lasts for 2 seconds
+  }, 3000); 
 });
 
 // WEBSITE LOADER
