@@ -1,6 +1,6 @@
 # Houzeo - Modern Property Listings
 
-A modern, responsive property listing webpage built using **HTML5**, **CSS3 (SCSS)**, and **JavaScript**, showcasing real estate cards with an interactive **Google Maps** placeholder, filter bar, image sliders, and scroll-to-top functionality.
+A modern, responsive property listing webpage built using **HTML5**, **CSS3**, and **JavaScript**, showcasing real estate cards with an interactive **Google Maps** placeholder, filter bar, image sliders, and scroll-to-top functionality.
 
 ---
 
