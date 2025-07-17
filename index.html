@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Find and list modern properties effortlessly with Houzeo. Explore homes, apartments, and land listings in your area.">
+    <meta name="keywords" content="real estate, property listings, buy house, rent apartment, Houzeo, modern homes">
+    <meta name="author" content="Houzeo Team">
     <title>Houzeo - Modern Property Listings</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-
-
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 </head>
 
 <body>
+
+      <div class="loader">
+    <h1 id="loader-text">HOUZEO</h1>
+  </div>
+  
     <!-- Header Section -->
     <header>
         <div class="header-container">
@@ -22,6 +30,15 @@
                 <span>Houzeo</span>
             </a>
         </div>
+
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+
+       <div class="cart-container">
+  <i class="fas fa-heart"></i>
+  <span class="cart-count" id="favCount">0</span>
+</div>
     </header>
 
     <!-- Filter Bar -->
@@ -90,14 +107,11 @@
                 <div class="property-card">
                     <div class="image-slider">
                         <div class="slides">
-                            <div class="slide"
-                                style="background-image: url('./images/1.png');">
+                            <div class="slide" style="background-image: url('./images/1.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/2.png');">
+                            <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/3.png');">
+                            <div class="slide" style="background-image: url('./images/3.png');">
                             </div>
                         </div>
                         <div class="slider-controls">
@@ -133,15 +147,12 @@
                 <!-- Property Card 2 -->
                 <div class="property-card">
                     <div class="image-slider">
-                       <div class="slides">
-                            <div class="slide"
-                                style="background-image: url('./images/4.png');">
+                        <div class="slides">
+                            <div class="slide" style="background-image: url('./images/4.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/3.png');">
+                            <div class="slide" style="background-image: url('./images/3.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/2.png');">
+                            <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
                         </div>
                         <div class="slider-controls">
@@ -154,7 +165,7 @@
                         </div>
                     </div>
 
-                     <div class="label-and-like">
+                    <div class="label-and-like">
                         <span class="property-label">Condo For Sale</span>
                         <div class="favorite-icon">
                             <i class="far fa-heart"></i>
@@ -173,21 +184,18 @@
                         <div class="days-on-market">2 days on Houzeo</div>
                     </div>
 
-                 
+
                 </div>
 
                 <!-- Property Card 3 -->
                 <div class="property-card">
                     <div class="image-slider">
                         <div class="slides">
-                            <div class="slide"
-                                style="background-image: url('./images/3.png');">
+                            <div class="slide" style="background-image: url('./images/3.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/2.png');">
+                            <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/1.png');">
+                            <div class="slide" style="background-image: url('./images/1.png');">
                             </div>
                         </div>
                         <div class="slider-controls">
@@ -201,7 +209,7 @@
                         </div>
                     </div>
 
-                     <div class="label-and-like">
+                    <div class="label-and-like">
                         <span class="property-label">Townhouse For Sale</span>
                         <div class="favorite-icon">
                             <i class="far fa-heart"></i>
@@ -209,7 +217,7 @@
                     </div>
 
                     <div class="property-info">
-                        
+
                         <div class="price">$535,000</div>
                         <div class="details">
                             <div class="detail-item"><i class="fas fa-bed"></i> 3 bd</div>
@@ -219,21 +227,18 @@
                         <div class="address">789 Pine Road, Seattle, WA 98101</div>
                         <div class="days-on-market">12 days on Houzeo</div>
                     </div>
-                  
+
                 </div>
 
                 <!-- Property Card 4 -->
                 <div class="property-card">
                     <div class="image-slider">
-                       <div class="slides">
-                            <div class="slide"
-                                style="background-image: url('./images/2.png');">
+                        <div class="slides">
+                            <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/4.png');">
+                            <div class="slide" style="background-image: url('./images/4.png');">
                             </div>
-                            <div class="slide"
-                                style="background-image: url('./images/1.png');">
+                            <div class="slide" style="background-image: url('./images/1.png');">
                             </div>
                         </div>
                         <div class="slider-controls">
@@ -245,8 +250,8 @@
                             <div class="bullet"></div>
                         </div>
                     </div>
-                    
-                     <div class="label-and-like">
+
+                    <div class="label-and-like">
                         <span class="property-label">House For Sale</span>
                         <div class="favorite-icon">
                             <i class="far fa-heart"></i>
@@ -254,7 +259,7 @@
                     </div>
 
                     <div class="property-info">
-                            <div class="price">$675,000</div>
+                        <div class="price">$675,000</div>
                         <div class="details">
                             <div class="detail-item"><i class="fas fa-bed"></i> 5 bd</div>
                             <div class="detail-item"><i class="fas fa-bath"></i> 4 ba</div>
@@ -263,7 +268,7 @@
                         <div class="address">321 Elm Boulevard, Miami, FL 33101</div>
                         <div class="days-on-market">3 days on Houzeo</div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -321,8 +326,8 @@
     </footer>
 
     <button id="scrollToTopBtn" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="./js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>

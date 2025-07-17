@@ -61,24 +61,7 @@ document.querySelectorAll('.image-slider').forEach(slider => {
         });
     });
 });
-
-// Favorite heart functionality
-document.querySelectorAll('.favorite-icon').forEach(icon => {
-    icon.addEventListener('click', function () {
-        const heartIcon = this.querySelector('i');
-
-        if (heartIcon.classList.contains('far')) {
-            heartIcon.classList.remove('far');
-            heartIcon.classList.add('fas');
-            this.classList.add('active');
-        } else {
-            heartIcon.classList.remove('fas');
-            heartIcon.classList.add('far');
-            this.classList.remove('active');
-        }
-    });
-});
-
+ 
 // Initialize the map
 window.initMap = initMap;
 
@@ -100,3 +83,83 @@ scrollBtn.addEventListener("click", () => {
     });
 });
 // SCROLL TO TOP
+
+// DARK MODE
+// Dark Mode Toggle
+const toggleBtn = document.getElementById('themeToggle');
+const icon = toggleBtn.querySelector('i');
+
+// Check if previously selected
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+}
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    const isDark = document.body.classList.contains('dark-mode');
+
+    // Switch icon
+    if (isDark) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// DARK MODE
+
+// CART COUNT
+document.addEventListener("DOMContentLoaded", () => {
+  let favoriteCount = 0;
+  const countDisplay = document.getElementById('favCount');
+
+  const updateCount = (delta) => {
+    favoriteCount = Math.max(0, favoriteCount + delta);
+    countDisplay.textContent = favoriteCount;
+
+    // Animate count change
+    countDisplay.classList.remove('update');
+    void countDisplay.offsetWidth; // Force reflow to restart animation
+    countDisplay.classList.add('update');
+  };
+
+  document.querySelectorAll('.favorite-icon').forEach(icon => {
+    icon.addEventListener('click', function () {
+      const heartIcon = this.querySelector('i');
+      const isFav = heartIcon.classList.contains('fas');
+
+      if (isFav) {
+        // Remove favorite
+        heartIcon.classList.remove('fas');
+        heartIcon.classList.add('far');
+        this.classList.remove('active');
+        updateCount(-1);
+      } else {
+        // Add favorite
+        heartIcon.classList.remove('far');
+        heartIcon.classList.add('fas');
+        this.classList.add('active');
+        updateCount(+1);
+      }
+    });
+  });
+});
+
+
+// CART COUNT
+
+// WEBSITE LOADER
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.querySelector('.loader').style.display = 'none';
+  }, 3000); // Loader lasts for 2 seconds
+});
+
+// WEBSITE LOADER
