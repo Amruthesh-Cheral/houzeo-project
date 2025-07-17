@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houzeo - Modern Property Listings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-home"></i>
+                <span>Houzeo</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-group">
+            <label>Status</label>
+            <select class="filter-input">
+                <option>For Sale</option>
+                <option>Sold</option>
+                <option>Pending</option>
+                <option>Coming Soon</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Price Range</label>
+            <select class="filter-input">
+                <option>Any Price</option>
+                <option>$100,000 - $200,000</option>
+                <option>$200,000 - $300,000</option>
+                <option>$300,000 - $500,000</option>
+                <option>$500,000+</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Bedrooms</label>
+            <select class="filter-input">
+                <option>Any Beds</option>
+                <option>1+</option>
+                <option>2+</option>
+                <option>3+</option>
+                <option>4+</option>
+            </select>
+        </div>
+
+        <button class="save-btn">
+            <i class="fas fa-save"></i> Save Search
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Map Section -->
+        <div class="map-container">
+            <div class="map-overlay">
+                <i class="fas fa-map-marker-alt"></i> United States
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <!-- Property Listings -->
+        <div class="listings-container">
+            <div class="sorting-options">
+                <div class="results-count">24 Properties Found</div>
+                <select class="sort-select">
+                    <option>Newest First</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Days on Market</option>
+                </select>
+            </div>
+
+            <div class="property-list">
+                <!-- Property Card 1 -->
+                <div class="property-card">
+                    <div class="image-slider">
+                        <div class="slides">
+                            <div class="slide"
+                                style="background-image: url('./images/1.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/2.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/3.png');">
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="bullets">
+                            <div class="bullet active"></div>
+                            <div class="bullet"></div>
+                            <div class="bullet"></div>
+                        </div>
+                    </div>
+
+                    <div class="label-and-like">
+                        <span class="property-label">Townhouse For Sale</span>
+                        <div class="favorite-icon">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+
+                    <div class="property-info">
+                        <div class="price">$420,000</div>
+                        <div class="address"><i class="fas fa-map-marker-alt"></i> 789 Pine Rd, Chicago, IL</div>
+                        <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 4 beds</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 3 baths</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 2,100 sqft</div>
+                        </div>
+                        <div class="days-on-market">3 days on Houzeo</div>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card">
+                    <div class="image-slider">
+                       <div class="slides">
+                            <div class="slide"
+                                style="background-image: url('./images/4.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/3.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/2.png');">
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="bullets">
+                            <div class="bullet active"></div>
+                            <div class="bullet"></div>
+                        </div>
+                    </div>
+
+                     <div class="label-and-like">
+                        <span class="property-label">Condo For Sale</span>
+                        <div class="favorite-icon">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="property-info">
+                        <div class="price">$325,000</div>
+                        <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 2 bd</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 2 ba</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 1,250 sqft</div>
+                        </div>
+                        <div class="address">456 Maple Avenue, Denver, CO 80202</div>
+                        <div class="days-on-market">2 days on Houzeo</div>
+                    </div>
+
+                 
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card">
+                    <div class="image-slider">
+                        <div class="slides">
+                            <div class="slide"
+                                style="background-image: url('./images/3.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/2.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/1.png');">
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="bullets">
+                            <div class="bullet active"></div>
+                            <div class="bullet"></div>
+                            <div class="bullet"></div>
+                        </div>
+                    </div>
+
+                     <div class="label-and-like">
+                        <span class="property-label">Townhouse For Sale</span>
+                        <div class="favorite-icon">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+
+                    <div class="property-info">
+                        
+                        <div class="price">$535,000</div>
+                        <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 3 bd</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 2.5 ba</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 1,850 sqft</div>
+                        </div>
+                        <div class="address">789 Pine Road, Seattle, WA 98101</div>
+                        <div class="days-on-market">12 days on Houzeo</div>
+                    </div>
+                  
+                </div>
+
+                <!-- Property Card 4 -->
+                <div class="property-card">
+                    <div class="image-slider">
+                       <div class="slides">
+                            <div class="slide"
+                                style="background-image: url('./images/2.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/4.png');">
+                            </div>
+                            <div class="slide"
+                                style="background-image: url('./images/1.png');">
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="bullets">
+                            <div class="bullet active"></div>
+                            <div class="bullet"></div>
+                        </div>
+                    </div>
+                    
+                     <div class="label-and-like">
+                        <span class="property-label">House For Sale</span>
+                        <div class="favorite-icon">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+
+                    <div class="property-info">
+                            <div class="price">$675,000</div>
+                        <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 5 bd</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 4 ba</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 3,200 sqft</div>
+                        </div>
+                        <div class="address">321 Elm Boulevard, Miami, FL 33101</div>
+                        <div class="days-on-market">3 days on Houzeo</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Houzeo</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Learning Center</a></li>
+                    <li><a href="#">Market Reports</a></li>
+                    <li><a href="#">Agent Directory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Licensing</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2023 Houzeo. All rights reserved.
+        </div>
+    </footer>
+
+    <button id="scrollToTopBtn" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+    <script src="./js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+
+</html>
