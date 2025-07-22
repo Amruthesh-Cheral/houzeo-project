@@ -18,34 +18,70 @@
 
 <body>
 
-      <div class="loader">
-    <h1 id="loader-text">HOUZEO</h1>
-  </div>
-  
-    <!-- Header Section -->
+    <div class="loader">
+        <h1 id="loader-text">HOUZEO</h1>
+    </div>
+
     <header>
         <div class="header-container">
+            <div class="menu-icon" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <a href="#" class="logo">
-                <i class="fas fa-home"></i>
-                <span>Houzeo</span>
+                <img src="./images/logo.png" alt="Houzeo Logo" />
             </a>
+
+            <div class="profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
+
+            <nav class="search-group" id="navMenu">
+                <!-- Your existing menu items -->
+                <select class="filter-input drop-down">
+                    <option>Product</option>
+                    <option>Sold</option>
+                </select>
+                <h5 class="tab-view">How Houzeo Works</h5>
+                <h5 class="tab-view">Reviews</h5>
+                <select class="filter-input drop-down">
+                    <option>Buy</option>
+                    <option>Sold</option>
+                </select>
+                <select class="filter-input drop-down">
+                    <option>Sell</option>
+                    <option>1</option>
+                </select>
+                <h5 class="tab-view">Pricing</h5>
+                <select class="filter-input drop-down">
+                    <option>Resources</option>
+                    <option>2</option>
+                </select>
+                <h5 class="tab-view">Sign In</h5>
+                <div class="tab-view">
+                    <h5>(844) 448-0110</h5>
+                    <h5>(9am to 6pm CST, Mon-Sat)</h5>
+                </div>
+                <button class="save-btn">Start Free Listing</button>
+            </nav>
         </div>
-
-        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
-            <i class="fas fa-moon"></i>
-        </button>
-
-       <div class="cart-container">
-  <i class="fas fa-heart"></i>
-  <span class="cart-count" id="favCount">0</span>
-</div>
     </header>
+
 
     <!-- Filter Bar -->
     <div class="filter-bar">
-        <div class="filter-group">
-            <label>Status</label>
-            <select class="filter-input">
+        <div class="search-container">
+            <input type="text" class="search-input-filed" placeholder="Austin, TX" id="searchBox" />
+            <button class="clear-btn" id="clearBtn">&times;</button>
+            <button class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="filter-group desktop-only">
+            <select class="filter-input" data-filter>
                 <option>For Sale</option>
                 <option>Sold</option>
                 <option>Pending</option>
@@ -53,10 +89,9 @@
             </select>
         </div>
 
-        <div class="filter-group">
-            <label>Price Range</label>
-            <select class="filter-input">
-                <option>Any Price</option>
+        <div class="filter-group desktop-only">
+            <select class="filter-input" data-filter>
+                <option>Price</option>
                 <option>$100,000 - $200,000</option>
                 <option>$200,000 - $300,000</option>
                 <option>$300,000 - $500,000</option>
@@ -64,21 +99,69 @@
             </select>
         </div>
 
-        <div class="filter-group">
-            <label>Bedrooms</label>
+        <div class="filter-group desktop-only" data-filter>
             <select class="filter-input">
-                <option>Any Beds</option>
+                <option>Beds & Bath</option>
                 <option>1+</option>
                 <option>2+</option>
                 <option>3+</option>
                 <option>4+</option>
             </select>
         </div>
+        <div class="filter-group desktop-only" data-filter>
+            <select class="filter-input">
+                <option>Property Type</option>
+                <option>Residential</option>
+                <option>Commercial</option>
+                <option>Flats</option>
+                <option>Normal</option>
+            </select>
+        </div>
 
-        <button class="save-btn">
-            <i class="fas fa-save"></i> Save Search
+        <button class="filter-btn mobile-only" id="filterToggle">
+            <i class="fas fa-sliders-h"></i> <span class="filter-content">Filters</span> <span
+                id="filter-count">0</span>
+        </button>
+
+        <div class="filter-group mobile-only">
+            <select class="filter-input" data-filter>
+                <option>For Sale</option>...
+            </select>
+        </div>
+        <div class="filter-group mobile-only">
+            <select class="filter-input" data-filter>
+                <option>Price</option>...
+            </select>
+        </div>
+
+        <button class="saved-btn-2">
+            <div class="d-flex align-items-center desktop-only">
+                <i class="fas fa-pencil-alt"></i>
+                <span class="me-3">Saved</span>
+            </div>
+            <span class="mobile-only">Save Search</span>
         </button>
     </div>
+    <!-- Modal Filters for Mobile -->
+    <div class="mobile-filter-modal" id="mobileFilterModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+
+
+            <div class="filter-group">
+                <select class="filter-input" data-filter>
+                    <option>Beds & Bath</option>...
+                </select>
+            </div>
+            <div class="filter-group">
+                <select class="filter-input" data-filter>
+                    <option>Property Type</option>...
+                </select>
+            </div>
+            <button class="save-btn" id="applyFilters">Apply</button>
+        </div>
+    </div>
+
 
     <!-- Main Content -->
     <div class="main-container">
@@ -93,13 +176,21 @@
         <!-- Property Listings -->
         <div class="listings-container">
             <div class="sorting-options">
-                <div class="results-count">24 Properties Found</div>
-                <select class="sort-select">
-                    <option>Newest First</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
-                    <option>Days on Market</option>
-                </select>
+
+                <div>
+                    <h4>Austin, TX real estate & homes for sale</h4>
+                    <div class="results-count">2,010 Homes</div>
+                </div>
+
+                <div class="d-flex gap-10 align-items-center">
+                    <h5 class="results-count">Sort by : </h5>
+                    <select class="sort-select">
+                        <option>Newest First</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Days on Market</option>
+                    </select>
+                </div>
             </div>
 
             <div class="property-list">
@@ -133,14 +224,34 @@
                     </div>
 
                     <div class="property-info">
-                        <div class="price">$420,000</div>
-                        <div class="address"><i class="fas fa-map-marker-alt"></i> 789 Pine Rd, Chicago, IL</div>
-                        <div class="details">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="round-badge">
+                                <span class="round"></span> <span>House For Sale</span>
+                            </h4>
+                            <div>
+                                <span> <i class="fa-solid fa-eye"></i> 2.5 k</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price text-primary">$420,000</div>
+                            <div class="details">
+                                <div class="detail-item"> <span>4</span> Beds</div>
+                                <div class="detail-item"> <span>3</span> Baths</div>
+                                <div class="detail-item"> <span>998</span> sqft</div>
+                            </div>
+                        </div>
+
+                        <div class="address"> <span class="fw-500 text-dark">2856 Meadow Park Ave,</span> Henderson, NV
+                            89052</div>
+                        <div class="address"> Nashville (Real Tracs Mid) MLS-TN as distributed by MLS GRID</div>
+
+                        <!-- <div class="details">
                             <div class="detail-item"><i class="fas fa-bed"></i> 4 beds</div>
                             <div class="detail-item"><i class="fas fa-bath"></i> 3 baths</div>
                             <div class="detail-item"><i class="fas fa-ruler-combined"></i> 2,100 sqft</div>
-                        </div>
-                        <div class="days-on-market">3 days on Houzeo</div>
+                        </div> -->
+                        <!-- <div class="days-on-market">3 days on Houzeo</div> -->
                     </div>
                 </div>
 
@@ -148,52 +259,9 @@
                 <div class="property-card">
                     <div class="image-slider">
                         <div class="slides">
-                            <div class="slide" style="background-image: url('./images/4.png');">
-                            </div>
-                            <div class="slide" style="background-image: url('./images/3.png');">
-                            </div>
                             <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
-                        </div>
-                        <div class="slider-controls">
-                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="bullets">
-                            <div class="bullet active"></div>
-                            <div class="bullet"></div>
-                        </div>
-                    </div>
-
-                    <div class="label-and-like">
-                        <span class="property-label">Condo For Sale</span>
-                        <div class="favorite-icon">
-                            <i class="far fa-heart"></i>
-                        </div>
-                    </div>
-
-
-                    <div class="property-info">
-                        <div class="price">$325,000</div>
-                        <div class="details">
-                            <div class="detail-item"><i class="fas fa-bed"></i> 2 bd</div>
-                            <div class="detail-item"><i class="fas fa-bath"></i> 2 ba</div>
-                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 1,250 sqft</div>
-                        </div>
-                        <div class="address">456 Maple Avenue, Denver, CO 80202</div>
-                        <div class="days-on-market">2 days on Houzeo</div>
-                    </div>
-
-
-                </div>
-
-                <!-- Property Card 3 -->
-                <div class="property-card">
-                    <div class="image-slider">
-                        <div class="slides">
                             <div class="slide" style="background-image: url('./images/3.png');">
-                            </div>
-                            <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
                             <div class="slide" style="background-image: url('./images/1.png');">
                             </div>
@@ -217,28 +285,46 @@
                     </div>
 
                     <div class="property-info">
-
-                        <div class="price">$535,000</div>
-                        <div class="details">
-                            <div class="detail-item"><i class="fas fa-bed"></i> 3 bd</div>
-                            <div class="detail-item"><i class="fas fa-bath"></i> 2.5 ba</div>
-                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 1,850 sqft</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="round-badge">
+                                <span class="round"></span> <span>House For Sale</span>
+                            </h4>
+                            <div>
+                                <span> <i class="fa-solid fa-eye"></i> 2.5 k</span>
+                            </div>
                         </div>
-                        <div class="address">789 Pine Road, Seattle, WA 98101</div>
-                        <div class="days-on-market">12 days on Houzeo</div>
-                    </div>
 
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price text-primary">$420,000</div>
+                            <div class="details">
+                                <div class="detail-item"> <span>4</span> Beds</div>
+                                <div class="detail-item"> <span>3</span> Baths</div>
+                                <div class="detail-item"> <span>998</span> sqft</div>
+                            </div>
+                        </div>
+
+                        <div class="address"> <span class="fw-500 text-dark">2856 Meadow Park Ave,</span> Henderson, NV
+                            89052</div>
+                        <div class="address"> Nashville (Real Tracs Mid) MLS-TN as distributed by MLS GRID</div>
+
+                        <!-- <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 4 beds</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 3 baths</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 2,100 sqft</div>
+                        </div> -->
+                        <!-- <div class="days-on-market">3 days on Houzeo</div> -->
+                    </div>
                 </div>
 
-                <!-- Property Card 4 -->
+                <!-- Property Card 3 -->
                 <div class="property-card">
                     <div class="image-slider">
                         <div class="slides">
-                            <div class="slide" style="background-image: url('./images/2.png');">
-                            </div>
-                            <div class="slide" style="background-image: url('./images/4.png');">
+                            <div class="slide" style="background-image: url('./images/3.png');">
                             </div>
                             <div class="slide" style="background-image: url('./images/1.png');">
+                            </div>
+                            <div class="slide" style="background-image: url('./images/2.png');">
                             </div>
                         </div>
                         <div class="slider-controls">
@@ -248,27 +334,108 @@
                         <div class="bullets">
                             <div class="bullet active"></div>
                             <div class="bullet"></div>
+                            <div class="bullet"></div>
                         </div>
                     </div>
 
                     <div class="label-and-like">
-                        <span class="property-label">House For Sale</span>
+                        <span class="property-label">Townhouse For Sale</span>
                         <div class="favorite-icon">
                             <i class="far fa-heart"></i>
                         </div>
                     </div>
 
                     <div class="property-info">
-                        <div class="price">$675,000</div>
-                        <div class="details">
-                            <div class="detail-item"><i class="fas fa-bed"></i> 5 bd</div>
-                            <div class="detail-item"><i class="fas fa-bath"></i> 4 ba</div>
-                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 3,200 sqft</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="round-badge">
+                                <span class="round"></span> <span>Multi-family home For Sale</span>
+                            </h4>
+                            <div>
+                                <span> <i class="fa-solid fa-eye"></i> 3.5 k</span>
+                            </div>
                         </div>
-                        <div class="address">321 Elm Boulevard, Miami, FL 33101</div>
-                        <div class="days-on-market">3 days on Houzeo</div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price text-primary">$420,000</div>
+                            <div class="details">
+                                <div class="detail-item"> <span>4</span> Beds</div>
+                                <div class="detail-item"> <span>3</span> Baths</div>
+                                <div class="detail-item"> <span>998</span> sqft</div>
+                            </div>
+                        </div>
+
+                        <div class="address"> <span class="fw-500 text-dark">2856 Meadow Park Ave,</span> Henderson, NV
+                            89052</div>
+                        <div class="address"> Nashville (Real Tracs Mid) MLS-TN as distributed by MLS GRID</div>
+
+                        <!-- <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 4 beds</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 3 baths</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 2,100 sqft</div>
+                        </div> -->
+                        <!-- <div class="days-on-market">3 days on Houzeo</div> -->
+                    </div>
+                </div>
+
+                <!-- Property Card 4 -->
+                <div class="property-card">
+                    <div class="image-slider">
+                        <div class="slides">
+                            <div class="slide" style="background-image: url('./images/1.png');">
+                            </div>
+                            <div class="slide" style="background-image: url('./images/2.png');">
+                            </div>
+                            <div class="slide" style="background-image: url('./images/3.png');">
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="bullets">
+                            <div class="bullet active"></div>
+                            <div class="bullet"></div>
+                            <div class="bullet"></div>
+                        </div>
                     </div>
 
+                    <div class="label-and-like">
+                        <span class="property-label">Townhouse For Sale</span>
+                        <div class="favorite-icon">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+
+                    <div class="property-info">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="round-badge">
+                                <span class="round"></span> <span>House For Sale</span>
+                            </h4>
+                            <div>
+                                <span> <i class="fa-solid fa-eye"></i> 2.5 k</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price text-primary">$420,000</div>
+                            <div class="details">
+                                <div class="detail-item"> <span>4</span> Beds</div>
+                                <div class="detail-item"> <span>3</span> Baths</div>
+                                <div class="detail-item"> <span>998</span> sqft</div>
+                            </div>
+                        </div>
+
+                        <div class="address"> <span class="fw-500 text-dark">2856 Meadow Park Ave,</span> Henderson, NV
+                            89052</div>
+                        <div class="address"> Nashville (Real Tracs Mid) MLS-TN as distributed by MLS GRID</div>
+
+                        <!-- <div class="details">
+                            <div class="detail-item"><i class="fas fa-bed"></i> 4 beds</div>
+                            <div class="detail-item"><i class="fas fa-bath"></i> 3 baths</div>
+                            <div class="detail-item"><i class="fas fa-ruler-combined"></i> 2,100 sqft</div>
+                        </div> -->
+                        <!-- <div class="days-on-market">3 days on Houzeo</div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -331,6 +498,8 @@
 
     <script src="./js/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+
 </body>
 
 </html>

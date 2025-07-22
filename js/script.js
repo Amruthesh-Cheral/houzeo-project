@@ -85,32 +85,38 @@ scrollBtn.addEventListener("click", () => {
 // SCROLL TO TOP
 
 // DARK MODE
-// Dark Mode Toggle
-const toggleBtn = document.getElementById('themeToggle');
-const icon = toggleBtn.querySelector('i');
 
-// Check if previously selected
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-    icon.classList.remove('fa-moon');
-    icon.classList.add('fa-sun');
-}
+// Dark Mode Toggle 
 
-toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.getElementById('themeToggle');
+    
+    // Ensure the element exists
+    if (!toggleBtn) return;
 
-    const isDark = document.body.classList.contains('dark-mode');
+    const icon = toggleBtn.querySelector('i');
 
-    // Switch icon
-    if (isDark) {
+    // Check if previously selected
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light');
     }
+
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+
+        if (isDark) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        }
+    });
 });
 
 // DARK MODE
@@ -163,3 +169,84 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // WEBSITE LOADER
+
+// header
+
+  let fav = 0;
+  function increaseFav() {
+    fav++;
+    const favCount = document.getElementById("favCount");
+    favCount.textContent = fav;
+    favCount.classList.remove("pop");
+    void favCount.offsetWidth; // trigger reflow
+    favCount.classList.add("pop");
+  }
+
+// header
+// SEARCH TO CLEAR
+// const searchBox = document.getElementById("searchBox");
+// const clearBtn = document.getElementById("clearBtn");
+
+// clearBtn.addEventListener("click", () => {
+//   searchBox.value = "";
+//   searchBox.focus();
+// });
+
+// SEARCH TO CLEAR
+
+// CLICK TO OPEN MENU
+ document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      menuToggle.classList.toggle("active");
+    });
+  }
+});
+// CLICK TO OPEN MENU
+
+  const filterToggle = document.getElementById("filterToggle");
+  const advancedFilters = document.getElementById("advancedFilters");
+  const clearBtn = document.getElementById("clearBtn");
+  const searchBox = document.getElementById("searchBox");
+
+  // Toggle advanced filters
+  filterToggle.addEventListener("click", () => {
+    advancedFilters.classList.toggle("show");
+  });
+
+  // Clear button
+  clearBtn.addEventListener("click", () => {
+    searchBox.value = "";
+    searchBox.focus();
+  });
+  
+
+
+  // RESPONSIVE 
+  const modal = document.getElementById("mobileFilterModal");
+  const filterBtn = document.getElementById("filterToggle");
+  const closeModal = document.getElementById("closeModal");
+  const applyBtn = document.getElementById("applyFilters");
+  const filterInputs = document.querySelectorAll('[data-filter]');
+  const filterCountDisplay = document.getElementById("filter-count");
+
+  filterBtn.addEventListener('click', () => modal.style.display = "block");
+  closeModal.addEventListener('click', () => modal.style.display = "none");
+  applyBtn.addEventListener('click', () => {
+    modal.style.display = "none";
+    let count = 0;
+    filterInputs.forEach(select => {
+      if (select.selectedIndex > 0) count++;
+    });
+    filterCountDisplay.textContent = count;
+  });
+
+  // Optional: close modal on outside click
+  window.addEventListener('click', e => {
+    if (e.target == modal) modal.style.display = "none";
+  });
+  // RESPONSIVE 
